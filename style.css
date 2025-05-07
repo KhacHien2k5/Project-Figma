@@ -3,19 +3,27 @@
     padding: 0;
     box-sizing: border-box;
 }
+html, body {
+    max-width: 100%;
+    /* overflow: hidden; */
+    /* width: 100%; */
+    /* height: 100%; */
+    margin: 0;
+    padding: 0;
+} 
 body{
+    min-height: 100vh;
     font-family: 'Segoe UI', sans-serif;
     background-color: #fff;
     display: flex;
     flex-direction: column;
-    margin: 0;
-    padding: 0;
 }
 section{
-    width: 900%;
+    width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 40px 0;
+    /* padding: 40px 0; */
+    box-sizing: border-box;
 }
 header{
     display: flex;
@@ -31,21 +39,25 @@ header{
     box-shadow:0 2px 8px rgba(0,0,0,0.1) ;
 }
 .background-white{
-    
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 57px; 
+    background-color: white;
+    z-index: 2;
 }
 .background{
     position: relative;
-    width: 100%;
-    min-height: 73vh;
+    /* width: 100vh; */
+    /* height: auto; */
     background-image: url(./img/image.png);
     background-size: cover;
     background-position: center;
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
     align-items: center;
     text-align: center;
-   
 }
 .background::before {
     content: "";
@@ -53,7 +65,7 @@ header{
     width: 100%; height: 100%;
     top: 0; left: 0; right: 0; bottom: 0;
     background: rgba(0,0,0,0.2); 
-    z-index: 1;
+    z-index: 0;
 }
 .arrow-up{
    z-index: 999;
@@ -78,7 +90,7 @@ header{
     background-color: #ff914d;
 }
 .navbar {
-    position: fixed;
+    /* position: fixed; */
     display: flex;
     position: sticky;
     top: 0;
@@ -122,6 +134,24 @@ nav a{
     margin: 0 12px;
     text-decoration: none;
     color: rgb(255, 255, 255);
+}
+.nav-menu ul li a::after {
+content: "";
+position: absolute;
+width: 0%;
+height: 2px;
+left: 50%;
+bottom: -4px;
+background-color: #F77E23;
+transform: translateX(-50%);
+transform-origin: center;
+transition: width 0.3s ease;
+}
+.nav-menu ul li a:hover{
+    transform: scale(1.05);
+}
+.nav-menu ul li a:hover::after{
+    width: 100%;
 }
 .header-icons{
     display: flex;
@@ -212,14 +242,14 @@ button{
     background: #ffffff;
     border-radius: 10px;
     box-shadow: none; 
-    top: 150px;
-    flex-wrap: wrap;
+    top: 0px;
+    flex-wrap: backwrap;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 .icon-item{
     gap: 15px;
     display: flex;
-    /* flex-direction: row; */
+    flex-direction: row;
     align-items: center;
     cursor: pointer;
     transition: transform 0.2s, box-shadow 0.2s;
@@ -261,8 +291,10 @@ button{
     justify-content: space-between;
     margin-bottom: 30px;
     align-items: center;
+    padding: 0 20px;
 }
 .top-categories{
+    margin-top: 0 !important;
     font-size: 3em;
     font-weight: 700;
     display: flex;
@@ -271,19 +303,16 @@ button{
     justify-content: center;
     font-family: "Fjalla One", sans-serif;
 }
-.see-all-wrapper{
-    top: 40px;
-}
 .see-all{
     font-family: "Cormorant Garamond", serif;
     position: absolute;
-    top: 40px;
-    right: 240px;
+    top: 50px;
+    right: 0;
     z-index: 5;
     color: #F77E23;
     text-decoration: none;
     font-weight: 600;
-    padding: 10px 15px;
+    padding: 0 0px;
     background:#ffffff00;
 }
 .category-section{
@@ -296,11 +325,12 @@ button{
     flex-wrap: wrap;
     overflow: hidden;
     justify-content: center;
+    overflow-x: autoq;
 }
 .category-card{
     position: relative;
-    width: 230px;
-    height: 432px;
+    width: 320px;
+    height: 490px;
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1) ;
@@ -310,7 +340,7 @@ button{
     transition: transform 0.3s;
 }
 .category-card img{
-    height: 432px;
+    height: 490px;
     width: 100%;
     object-fit: cover;
     display: block;
@@ -364,3 +394,4 @@ button{
 .arrow:hover{
     background-color: #ff914d;
 }
+
